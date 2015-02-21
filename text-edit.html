@@ -1,0 +1,32 @@
+<template name="textEdit">
+  <div class="redline--carota-instance" id="editor"></div>
+  <p class="redline-bottom-toolbar--word-count">
+    <i>Word Count:</i> {{wordCount}}
+  </p><!--end word-count-->
+  <br class="clearfix">
+
+   <button type="button" class="button button__text redline-bottom-toolbar--track-changes-button pull-left {{#if openRevisionHistoryButton}}active{{/if}} showRevisionHistory" id="showRevisionHistory">
+    {{#if openRevisionHistoryButton}}
+      <i class="fa fa-chevron-down"></i>
+    {{else}}
+      <i class="fa fa-chevron-right"></i>
+    {{/if}}
+    Revision History
+  </button>
+    
+  <button type="button" class="button button__text redline-bottom-toolbar--save-button {{#if getSaveState}}saving{{/if}} {{! #unless textEditorUnlocked}}disabled{{! /unless}}" id="editSaveButton">
+    {{#if savingTransition}}
+      <i class="fa fa-spinner fa-spin"></i> Saving&hellip;
+    {{else}}
+         <i class="fa fa-save"></i> Save
+    {{/if}}
+  </button>
+
+  <br class="clearfix" />
+
+  {{#if openRevisionHistoryButton}}
+    <ul class="redline--revision-history">
+      {{{revisionHistory}}}
+    </ul>
+  {{/if}}
+</template>

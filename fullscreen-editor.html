@@ -1,0 +1,11 @@
+<template name="fullscreenEditor">
+  <div class="redline {{commentsActive}}">
+    <section class="redline--text">
+      {{> editorStyleControls}}
+      {{> textEdit}}
+    </section>
+    <section class="redline--comments">
+      <div id="singleCommentStub" style={{showCommentsStyle}}></div>
+    </section>
+  </div>
+</template>

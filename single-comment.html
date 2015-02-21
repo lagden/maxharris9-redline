@@ -1,0 +1,22 @@
+<template name="singleComment">
+  {{#if rootNode}}
+    <div id="singleCommentStub-{{guid}}"></div>
+  {{else}}
+    <div class="commentDiv" style="{{comment}}">
+      <img class="img-circle" style="height: 32px;" src="{{userImage}}">
+      <i id="peerCommentToggler" class="fa fa-comment commentToggler"></i>
+      <div style={{commentBox}}>
+        <h5 style={{byline}}>by {{fullUserName}}</h5>
+        <div id="textBlankStub-{{guid}}"></div>
+        {{#if removeAvailable}}
+          <a class="remove">Remove</a>
+        {{/if}}
+        {{#if replyAvailable}}
+          <a class="reply">Reply</a>
+        {{/if}}
+      <div id="singleCommentStub-{{guid}}"></div>
+      </div>
+      <br class="clearfix" />
+    </div>
+  {{/if}}
+</template>

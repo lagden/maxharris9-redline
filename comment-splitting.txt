@@ -1,0 +1,79 @@
+|This |is |a |very long, |very opaque |sentence.
+|     | 0 | 0|           |            |
+|  1  | 1 | 1|     1     |            |
+|     |   | 2|     2     |     2      |
+  
+add this:
+  |        3         | 
+
+
+goal: an array of {start, end} positions, and the ids inside.
+
+for each run { // there are 5 here in our example
+	is the run partially overlapping with the new run we want to add?
+		split it, and add the id to the corresponding children.
+	is the run wholly overlapping the entire run?
+		just add the new id to that existing run
+}
+
+x  y  a  b
+1  4  0  20
+
+a < x < y < b
+
+
+case 1: x < y < a < b ------- (x < y) && (y < a) && (a < b)
+
+                                  a                     b
+                                  |---------old---------|
+|++++++++++new+++++++++|
+x                      y
+
+=========================================================
+
+
+case 2: a < b < x < y ------- (a < b) && (b < x) && (x < y)
+
+a                      b
+|----------old---------|
+                                  |+++++++++new+++++++++|
+                                  x                     y
+
+=========================================================
+
+
+case 3: x < a < y < b ------- ((x < a) && (a < y) && (y < b))
+
+                a                     b
+                |---------old---------|
+|++++++++++new+++++++++|
+x                      y
+
+=========================================================
+
+
+case 4: a < x < b < y ------- ((a < x) && (x < b) && (b < y))
+                a                     b
+                |---------old---------|
+                              |++++++++++new+++++++++|
+                              x                      y
+
+=========================================================
+
+
+case 5: x < a < b < y ------- ((x < a) && (a < b) && (b < y))
+
+                a                     b
+                |---------old---------|
+|+++++++++++++++++++++++++new++++++++++++++++++++++++|
+x                                                    y
+
+=========================================================
+
+
+case 6: a < x < y < b ------- ((a < x) && (x < y) && (y < b))
+
+a                                                    b
+|-------------------------old------------------------|
+                |+++++++++new+++++++++|
+                x                     y

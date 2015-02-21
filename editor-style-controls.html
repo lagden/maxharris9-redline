@@ -1,0 +1,39 @@
+<template name="editorStyleControls">
+  <div id="{{name}}" class="anchor"></div>
+  <div class="redline-top-toolbar">
+    <div class="redline-top-toolbar--left-controls">
+      {{#if showUndoButton}}
+        <button type="button" class="button redline-top-toolbar--button redoButton" id="editRedoButton" title="redo">
+          <i class='fa fa-repeat'></i>
+        </button>
+      {{/if}}
+      {{#if showRedoButton}}
+        <button type="button" class="button redline-top-toolbar--button undoButton" id='editUndoButton' title="undo">
+          <i class='fa fa-undo'></i>
+        </button>
+      {{/if}}
+      <button type="button" class="button redline-top-toolbar--button {{showUnderlineState}} editUnderlineButton" id="editUnderlineButton" title="underline">
+        <i class='fa fa-underline'></i>
+      </button>
+      <button type="button" class="button redline-top-toolbar--button {{showItalicState}} editItalicButton" id="editItalicButton" title="set in italics" >
+        <i class='fa fa-italic'></i>
+      </button>
+      <button type="button" class="button redline-top-toolbar--button {{showBoldState}} editBoldButton" id="editBoldButton" title="set in bold">
+        <i class='fa fa-bold'></i>
+      </button>
+      <button type="button" class="button redline-top-toolbar--button {{#unless activateCommentButton}}redline-top-toolbar--button__disabled{{/unless}}" id='createCommentButton'>
+        <i class='fa fa-comment-o'></i>
+      </button>
+      {{#unless activateCommentButton}}
+        <p class="redline--popover-message">
+          To add a comment, you must first highlight the text you'd like to comment on.
+        </p>
+      {{/unless}}
+    </div>
+    <div class="commentsSwitch redline-top-toolbar--comments-switch">
+      <p>Comments {{commentCount}}</p>
+      <div id="commentSwitchStub"></div>
+    </div>
+  </div>
+  <br class="clearfix">
+</template>
