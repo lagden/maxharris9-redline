@@ -1,19 +1,15 @@
 Package.describe({
   name: 'maxharris9:redline',
-  version: '0.0.1',
-  // Brief, one-line summary of the package.
-  summary: '',
-  // URL to the Git repository containing the source code for this package.
-  git: '',
-  // By default, Meteor will default to using README.md for documentation.
-  // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+  version: '0.0.2',
+  summary: 'Collaborative word processing for Meteor',
+  git: 'https://github.com/max-leportlabs/maxharris9-redline.git',
+  documentation: null
 });
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0.3.1');
 
-  api.use(['tracker', 'templating', 'underscore', 'pfafman:font-awesome-4', 'jquery', 'momentjs:moment', 'maxharris9:template-instance-utils', 'maxharris9:switch'], 'client');
+  api.use(['tracker', 'templating', 'underscore', 'pfafman:font-awesome-4@4.3.0', 'jquery', 'momentjs:moment@2.9.0', 'maxharris9:template-instance-utils@1.0.3', 'maxharris9:switch@1.0.0'], 'client');
   api.use(['reactive-var'], ['client', 'server']);
 
   api.addFiles('maxharris9:redline.js', 'client');
