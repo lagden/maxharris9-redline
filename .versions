@@ -21,9 +21,9 @@ jquery@1.11.3
 json@1.0.2
 launch-screen@1.0.1
 livedata@1.0.12
-local-test:maxharris9:redline@0.0.1
+local-test:maxharris9:redline@0.0.2
 logging@1.0.6
-maxharris9:redline@0.0.1
+maxharris9:redline@0.0.2
 maxharris9:switch@1.0.0
 maxharris9:template-instance-utils@1.0.3
 meteor@1.1.4
